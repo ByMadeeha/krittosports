@@ -1,122 +1,59 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Button from "../components/Button";
-import UploadBox from "../components/UploadBox";
-
+import { FaRunning, FaUserTie, FaSchool, FaTrophy } from "react-icons/fa";
 import "./Register.css";
 
 function Register() {
-  const [form, setForm] = useState({
-    fullName: "",
-    age: "",
-    gender: "",
-    district: "",
-    sport: "",
-    email: "",
-    phone: "",
-  });
-
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-  };
-
   return (
     <>
       <Navbar />
 
-      <section className="register-page">
+      <section className="register">
 
         <div className="register-header">
-          <h1>Create Your Athlete Profile</h1>
+          <h1>Join Kritto Sports</h1>
 
           <p>
-            Join Kritto Sports and build your official digital athlete profile.
+            Choose how you'd like to join Bangladesh's sports ecosystem.
           </p>
         </div>
 
-        <form className="register-form" onSubmit={handleSubmit}>
+        <div className="role-grid">
 
-          <input
-            name="fullName"
-            placeholder="Full Name"
-            value={form.fullName}
-            onChange={handleChange}
-            required
-          />
+          <Link to="/register/athlete" className="role-card">
+            <FaRunning className="role-icon" />
+            <h2>Athlete</h2>
+            <p>
+              Build your official athlete profile and discover opportunities.
+            </p>
+          </Link>
 
-          <input
-            name="age"
-            type="number"
-            placeholder="Age"
-            value={form.age}
-            onChange={handleChange}
-            required
-          />
+          <Link to="/register/coach" className="role-card">
+            <FaUserTie className="role-icon" />
+            <h2>Coach</h2>
+            <p>
+              Create your coaching profile and mentor athletes.
+            </p>
+          </Link>
 
-          <select
-            name="gender"
-            value={form.gender}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
+          <Link to="/register/academy" className="role-card">
+            <FaSchool className="role-icon" />
+            <h2>Academy</h2>
+            <p>
+              Showcase your academy and recruit talented athletes.
+            </p>
+          </Link>
 
-          <input
-            name="district"
-            placeholder="District"
-            value={form.district}
-            onChange={handleChange}
-            required
-          />
+          <Link to="/register/organization" className="role-card">
+            <FaTrophy className="role-icon" />
+            <h2>Organization</h2>
+            <p>
+              Publish competitions, scholarships, camps and trials.
+            </p>
+          </Link>
 
-          <input
-            name="sport"
-            placeholder="Primary Sport"
-            value={form.sport}
-            onChange={handleChange}
-            required
-          />
-
-          <input
-            name="email"
-            type="email"
-            placeholder="Email Address"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-
-          <input
-            name="phone"
-            placeholder="Phone Number"
-            value={form.phone}
-            onChange={handleChange}
-          />
-
-          <UploadBox
-            title="Upload Athlete Photo"
-            description="PNG or JPG"
-            accept="image/*"
-          />
-
-          <Button type="submit">
-            Create Athlete Profile
-          </Button>
-
-        </form>
+        </div>
 
       </section>
 
