@@ -1,0 +1,33 @@
+/* App.css */
+
+/* Root application container */
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Smooth page transitions */
+main {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Remove default link styling */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Better button defaults */
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Better image behavior */
+img {
+  max-width: 100%;
+  display: block;
+}
